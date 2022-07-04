@@ -4,7 +4,7 @@
 
 ## Styled with Tailwind
 
-Check out a live [version here](https://idyllic-sunflower-5bee4a.netlify.app/).
+Check out a live [version here](https://steady-cendol-128cfb.netlify.app/).
 
 ## Available Scripts
 
