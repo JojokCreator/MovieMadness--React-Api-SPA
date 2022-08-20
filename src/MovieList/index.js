@@ -6,37 +6,37 @@ export const MovieFetch = ({ movieTitle, setSearch }) => {
 	useEffect(() => {
 		async function getData() {
 			const response = await fetch(
-				`https://www.omdbapi.com/?apikey=${process.env.REACT_APP_APIKEY}&s=${movieTitle}`
+				`https://go-movies-api.herokuapp.com/movies?search=${movieTitle}`
 			);
 			const data = await response.json();
-			setMovie(data.Search);
-			console.log(movie)
+			setMovie(data);
 		}
 
 		getData();
 	}, [movieTitle]);
 
 	return (
-		<div class="flex items-center justify-center">
-			<ul class="gridlayout">
+		<div className="flex items-center justify-center">
+			<ul className="gridlayout">
+				{console.log(movie)}
 				{movie &&
-					movie.map((movie) => (
-						<li onClick={()=> setSearch(movie.Title)} key={movie.imdbID}>
-							<div class="flex justify-center h-full w-48">
-								<div class="card">
+					movie.map((movie, index) => (
+						<li onClick={()=> setSearch(movie.Title)} key={index}>
+							<div className="flex justify-center h-full w-48">
+								<div className="card">
 									<a href="#!">
 										<img
-											class="object-scale-down p-2"
+											className="object-scale-down p-2"
 											src={(movie.Poster === "N/A") ? "https://plchldr.co/i/500x500?bg=111111" :
 											movie.Poster}
 											alt={movie.Title}
 										/>
 									</a>
-									<div class="p-6">
-										<h5 class="text-gray-900 text-xl font-medium mb-2">
+									<div className="p-6">
+										<h5 className="text-gray-900 text-xl font-medium mb-2">
 											{movie.Title}
 										</h5>
-										<p class="text-gray-700 text-base mb-4">
+										<p className="text-gray-700 text-base mb-4">
 											{movie.Year}
 										</p>
 									</div>
