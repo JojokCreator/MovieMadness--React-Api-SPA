@@ -6,7 +6,7 @@ export const MovieFetch = ({ movieTitle, setSearch }) => {
 	useEffect(() => {
 		async function getData() {
 			const response = await fetch(
-				`https://go-movies-api.herokuapp.com/movies?search=${movieTitle}`
+				`${process.env.REACT_APP_URL}movies?search=${movieTitle}`
 			);
 			const data = await response.json();
 			setMovie(data);
